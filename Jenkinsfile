@@ -16,7 +16,8 @@ def getCurrentVersion() {
 }
 
 node {
-    stage("Build") {
+    stage("Create Version") {
+        sh "./create-version.sh"
         setPipelineDescription()
     }
 }
