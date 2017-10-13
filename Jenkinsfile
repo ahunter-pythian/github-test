@@ -28,4 +28,9 @@ node {
         def latestVersion = sh (script: "./get-version.sh | tail -1", returnStdout: true).trim()
         echo "Latest version is ${latestVersion}"
     }
+
+    stage("Get Current Version") {
+        def currentVersion = getCurrentVersion()
+        echo "The current version is ${currentVersion}"
+    }
 }
