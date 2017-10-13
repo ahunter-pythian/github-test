@@ -27,10 +27,17 @@ node {
         sh "./get-version.sh"
         def latestVersion = sh (script: "./get-version.sh | tail -1", returnStdout: true).trim()
         echo "Latest version is ${latestVersion}"
+        script {
+            env.CURRENT_VERSION = ${latestVersion}
+        }
     }
 
     stage("Get Current Version") {
         def currentVersion = getCurrentVersion()
         echo "The current version is ${currentVersion}"
+    }
+
+    stage("Get Environment Current Version") {
+        echo "The current version is ${env.CURRENT_VERSION}"
     }
 }
