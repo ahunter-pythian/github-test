@@ -16,7 +16,10 @@ def getCurrentVersion() {
 }
 
 node {
+    checkout scm
+
     stage("Create Version") {
+        sh "pwd ; ls -lrt"
         sh "./create-version.sh"
         setPipelineDescription()
     }
