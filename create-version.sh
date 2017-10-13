@@ -34,7 +34,7 @@ if [ ! -d "dist" ]; then
 	mkdir dist
 fi
 
-echo "[${COMMAND}] [`date +%H\:%M\:%S`] Change directory into the webapp dist directory"
+echo "[${COMMAND}] [`date +%H\:%M\:%S`] Change directory into the dist directory"
 cd dist
 
 echo "[${COMMAND}] [`date +%H\:%M\:%S`] Patch the version string into version.js"
