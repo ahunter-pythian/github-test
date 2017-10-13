@@ -19,8 +19,13 @@ node {
     checkout scm
 
     stage("Create Version") {
-        sh "pwd ; ls -lrt"
         sh "./create-version.sh"
         setPipelineDescription()
+    }
+
+    stage("Get Version") {
+        sh "./get-version.sh"
+        def latestVersion = sh (script: "./get-version.sh | tail -1", returnStdout: true).trim()
+        echo "Latest version is ${latestVersion}"
     }
 }
